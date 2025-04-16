@@ -1,4 +1,3 @@
-
 # Base image
 FROM python:3.12-slim
 
@@ -13,7 +12,6 @@ RUN apt-get update && apt-get install -y \
     libnss3 \
     libxss1 \
     libappindicator1 \
-    libindicator7 \
     libasound2 \
     libatk-bridge2.0-0 \
     libatk1.0-0 \
