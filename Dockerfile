@@ -2,7 +2,7 @@
 # Base image
 FROM python:3.12-slim
 
-# Install system dependencies (fixed for libindicator7 issue)
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     wget \
     unzip \
@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
     fonts-liberation \
     libnss3 \
     libxss1 \
-    libappindicator3-1 \
+    libappindicator1 \
+    libindicator7 \
     libasound2 \
     libatk-bridge2.0-0 \
     libatk1.0-0 \
@@ -37,5 +38,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Expose Streamlit port
 EXPOSE 8501
 
-# Run the Streamlit app
+# Run app
 CMD ["streamlit", "run", "app_bulk_gst_scraper_email.py", "--server.port=8501", "--server.enableCORS=false"]
